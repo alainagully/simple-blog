@@ -1,0 +1,9 @@
+<% if @comment.post.comments.empty? %>
+$('#<%= dom_id(@comment) %>').fadeOut(500, function() {
+    $(this).remove();
+    $('#comments').prepend("<div id='no-comments'><h4>There aren't any comments yet</h4></div>");    
+});
+
+<% else %>
+$('#<%= dom_id(@comment) %>').fadeOut(500, function() { $(this).remove(); });
+<% end %>

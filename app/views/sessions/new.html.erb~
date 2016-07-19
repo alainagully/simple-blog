@@ -1,0 +1,30 @@
+<div class="sign-up">
+    <div class="center">
+	<h1>Sign in</h1>
+	<%= form_tag do %>
+	    <table>
+		<tr>
+		    <td>
+			<%= label_tag :email %>
+		    </td>
+		    <td>
+			<%= email_field_tag :email %>
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			<%= label_tag :password %>
+		    </td>
+		    <td>
+			<%= password_field_tag :password %>
+		    </td>
+		</tr>
+		<tr>
+		    <td colspan="2" class="center-text">
+			<%= submit_tag "Sign in" %>
+		    </td>
+		</tr>
+	    </table>
+	<% end %>    
+    </div>
+</div>

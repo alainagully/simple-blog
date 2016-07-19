@@ -1,5 +1,16 @@
 source 'https://rubygems.org'
 
+# Added gems (aside from dev/test)
+gem 'cancancan'
+gem 'slim-rails'
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
+gem 'bootstrap-social-rails'
+gem 'omniauth-google-oauth2'
+gem 'font-awesome-rails'
+
+# For API
+gem 'active_model_serializers'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -24,7 +35,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -32,9 +43,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails'
+  gem 'rails-erd'
+  gem 'hirb'
+  gem 'interactive_editor'
+  gem 'awesome_print'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do

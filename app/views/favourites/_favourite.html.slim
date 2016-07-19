@@ -1,0 +1,5 @@
+- unless Favourite.exists?(user: current_user, post: @post)
+  = link_to "Add post to favourites", post_favourites_path(@post), method: :post, remote: :true
+- else
+  - f = Favourite.where(user: current_user, post: @post).first
+  = link_to "Remove post from favourites", post_favourite_path(@post, f), method: :delete, remote: :true

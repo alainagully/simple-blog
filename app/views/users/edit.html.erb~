@@ -1,0 +1,3 @@
+<h1>Change user information</h1>
+
+<%= render "form" %>

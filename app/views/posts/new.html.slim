@@ -1,0 +1,10 @@
+.form-box-outer
+  .
+    h1 New post
+  = @post.errors.full_messages.join(', ')
+  = bootstrap_form_for @post do |f|
+        = f.text_field :title
+        = f.text_area :body
+        = f.collection_check_boxes(:tag_ids, Tag.order(:title), :id, :title)
+        = f.collection_select :category_id, Category.order(:title), :id, :title
+        = f.submit 'Post!'

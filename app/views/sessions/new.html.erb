@@ -1,0 +1,15 @@
+<div class="form-box-outer flex">
+    <%= bootstrap_form_tag url: sessions_path do |f| %>
+	    <%= f.email_field :email %>
+	    <%= f.password_field :password %>
+	    <%= f.submit "Sign in" %>
+    <% end %>
+</div>
+
+
+
+<div class="google-sign-in">
+<%= link_to sign_in_with_google_path do %>
+    <button class="btn btn-social btn-google"><span class='fa fa-google'></span> Sign in with Google</button>
+<% end %>
+</div>

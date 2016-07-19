@@ -1,0 +1,10 @@
+<% if @favourite_posts.empty? %>
+    <h1>You haven't favourited any posts yet.</h1>
+<% else %>    
+
+    <h1>Your favourite posts</h1>
+
+    <% @favourite_posts.each do |f| %>
+	<%= link_to f.title, f %>
+    <% end %>    
+<% end %>

@@ -1,0 +1,58 @@
+<div class="sign-up">
+    <div class="center">
+	<%= @user.errors.full_messages.join(', ') %>
+	<h1>Sign up</h1>
+
+	<%= form_for @user do |f| %>
+	    <table>
+		<tr>
+		    <td>
+			<%= f.label :first_name %>
+		    </td>
+		    <td>
+			<%= f.text_field :first_name %>
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			<%= f.label :last_name %>
+		    </td>
+		    <td>
+			<%= f.text_field :last_name %>
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			<%= f.label :email %>
+		    </td>
+		    <td>
+			<%= f.email_field :email %>
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			<%= f.label :password %>
+		    </td>
+		    <td>
+			<%= f.password_field :password%>
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			<%= f.label :password_confirmation, 'Confirm password' %>
+		    </td>
+		    <td>
+			<%= f.password_field :password_confirmation %>
+		    </td>
+		</tr>
+		<tr>
+		    <td colspan="2">
+			<div class="center-text">
+			    <%= f.submit %>
+			</div>
+		    </td>
+		</tr>
+	    </table>
+	<% end %>
+    </div>
+</div>

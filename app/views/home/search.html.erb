@@ -1,0 +1,12 @@
+<div class="search-results">
+    <% unless @results.empty? %>
+	<h1>Search results</h1>
+	<% @results.each do |x| %>
+	    <div class="search-result">
+		<%= x.respond_to?(:title) ? link_to("#{x.title}", post_path(x))  : link_to("#{x.body[0..20]}...", post_path(x.post_id)) %>
+	    </div>
+	<% end %>    
+    <% else %>
+	<h1 style="text-align: center">Sorry your search didn't yield any results</h1>
+    <% end %>
+</div>

@@ -1,0 +1,15 @@
+<div class="sign-up">
+    <div class="center">
+	<h1>Change user information</h1>
+	<%= @user.errors.full_messages.join(', ') %>
+	<%= bootstrap_form_for @user do |f| %>
+	    <%= f.text_field :first_name %>
+	    <%= f.text_field :last_name %>
+	    <%= f.email_field :email %>
+	    <%= f.password_field :password %>
+	    <%= f.submit %>
+	<% end %>
+	<%= link_to "Change password", change_password_users_path %>
+    </div>
+</div>
+

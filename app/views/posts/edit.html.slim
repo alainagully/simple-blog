@@ -1,0 +1,18 @@
+.form-box-outer
+
+  h1 Edit Post
+  
+
+  = @post.errors.full_messages.join(', ')
+  = form_for @post do |f|
+    .form-box-inner
+      .form-row
+        .form-label
+          = f.label :title
+        = f.text_field :title
+      .form-row
+        .form-label
+          = f.label :body
+        = f.text_area :body
+      .form-row
+        = f.submit

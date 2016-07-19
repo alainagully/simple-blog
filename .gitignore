@@ -7,7 +7,13 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore app keys
+config/initializers/app_keys.rb
+config/secrets.yml
+
 # Ignore all logfiles and tempfiles.
+
+.byebug_history
 /log/*
 !/log/.keep
 /tmp

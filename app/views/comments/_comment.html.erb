@@ -1,0 +1,9 @@
+<div id="<%= dom_id(c) %>">
+    <%= c.body %>
+    <div class="comment-time-stamp">
+	<%= c.created_at %>
+    </div>
+    <% if can? :destroy, c %>
+	<%= link_to 'Delete', post_comment_path(@post, c), method: :Delete, remote: true %>
+    <% end %>
+</div>

@@ -1,0 +1,26 @@
+<div class="form-box-outer">
+    <%= @user.errors.full_messages.join(', ') %>
+    <h1>Sign up</h1>
+
+    <%= bootstrap_form_for @user, {html: {class: 'form-box-inner'}} do |f| %>
+
+	    <%= f.text_field :first_name, class: 'form-input' %>
+
+	    <%= f.text_field :last_name, class: 'form-input' %>
+
+	    <%= f.email_field :email, class: 'form-input' %>
+
+	    <%= f.password_field :password, class: 'form-input' %>
+
+	    <%= f.password_field :password_confirmation, class: 'form-input' %>
+
+	    <%= f.submit %>
+
+    <% end %>
+</div>
+
+<div class="google-sign-in">
+    <%= link_to sign_in_with_google_path do %>
+	<button class="btn btn-social btn-google"><span class='fa fa-google'></span> Sign up with Google</button>
+    <% end %>
+</div>

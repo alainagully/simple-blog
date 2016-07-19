@@ -1,0 +1,9 @@
+- if @posts
+  - @posts.each do |post|
+    .post
+      h3
+        = link_to post.title, post_path(post)
+      h4
+        = post.created_at
+      p
+        = post.body

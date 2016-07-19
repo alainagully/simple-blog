@@ -1,0 +1,40 @@
+.post
+  h1 
+    = @post.title.titleize
+  - if user_signed_in?
+    .favourite
+      = render "favourites/favourite"
+
+  p = @post.body
+
+  - if can? :edit, @post
+    = link_to ' Edit ', edit_post_path(@post)
+  - if can? :destroy, @post
+    = link_to ' Delete ', post_path(@post), method: :delete
+
+  - if @post.category
+    .cat
+      = @post.category.title
+
+  - unless @post.tags.empty?
+    = @post.tags.map{|t| t.title}
+
+  h3 Comments 
+  #comments
+    - if @post.comments.empty?
+      #no-comments
+        h4 There aren't any comments yet
+    - else
+      - @post.comments.order(created_at: :desc).each do |c|
+        = render "comments/comment", c: c
+  - if user_signed_in?
+    h3 Add a comment
+    #comment-form
+      = render "comments/form"
+  - else
+    p 
+      | You need to 
+      = link_to('sign in ', new_session_path)
+      | in order to comment
+      
+      

@@ -1,0 +1,55 @@
+doctype html
+
+html
+  head
+    link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css"
+    title Simple blog
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+
+    nav.navbar.navbar-default
+      .container-fluid
+        .collapse.navbar-collapse#bs-example-navbar-collapse-1
+          ul.nav.navbar-nav
+            li.active
+              = link_to('Home', index_path)
+            li
+              = link_to('About', about_path)
+          = form_tag("/search", method: "get", class: "navbar-form navbar-right", role: 'search') do
+            = text_field_tag :q, nil, class: "form-control"
+            = submit_tag "Search" , class: "btn btn-default"
+          ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              li
+                = link_to("#{current_user.first_name}", edit_user_path(current_user))
+              li
+                = link_to('New post', new_post_path)
+              li
+                = link_to "Your favourite posts", favourites_path
+              li
+                = link_to('Log out', sessions_path, method: :delete)
+            - else
+              li
+                = link_to('Sign up', new_user_path)
+              li
+                = link_to('Sign in', new_session_path)
+              
+
+    - if flash[:notice]
+      .alert.alert-success
+        = flash[:notice] 
+    - elsif flash[:alert]
+      .alert.alert-danger
+        = flash[:alert]
+
+    .row.blog-main
+      .col-sm-3
+      .col-sm-6
+        == yield
+      .col-sm-3
+
+
+
+
